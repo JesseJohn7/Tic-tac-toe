@@ -3,7 +3,7 @@ import { useState } from 'react'
 const Player = ({name,symbol}) => {
   const [isEditing , SetIsEditing] = useState(false)
   function handleEditClick (){
-    SetIsEditing(!isEditing)
+    SetIsEditing(()=>!isEditing)
   }
   let playerName =  <span className='player-name'>{name}</span>
   let buttonCaption = 'Edit'
