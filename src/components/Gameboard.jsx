@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 
 
-const Gameboard = () => {
+const Gameboard = ( {onSelectSquare,activePlayerSymbol}) => {
 
     const initialGameboard =[
         [null,null,null],
@@ -14,9 +14,11 @@ const Gameboard = () => {
     function handleSelectSquare(rowIndex,colIndex){
         setGameBoard((prevGameboard)=>{
             const updatedBoard = [...prevGameboard.map(innerArray => [...innerArray])]
-            updatedBoard[rowIndex][colIndex] = 'X'
+            updatedBoard[rowIndex][colIndex] = activePlayerSymbol
             return updatedBoard
         })
+
+        onSelectSquare()
     }
 
   return (
